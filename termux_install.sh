@@ -49,7 +49,7 @@ cd $HOME && wget -c 'https://github.com/ffraanks/termux_install/raw/master/.alia
 # MOTD
 cd /data/data/com.termux/files/usr/etc && rm -rf motd
 wget -c 'https://github.com/ffraanks/termux_install/raw/master/motd'
-cd $HOME
+cd $HOME && clear && printf "Instalação finalizada!\n"
 }
 create_directory
 package_install

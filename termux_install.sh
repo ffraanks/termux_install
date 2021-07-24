@@ -19,7 +19,7 @@ clear
 pkg install wget
 pkg install git
 pkg install zsh
-pkg install nvim
+pkg install neovim
 pkg install htop
 pkg install python
 pkg install yarn

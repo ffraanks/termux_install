@@ -1,7 +1,7 @@
 # My Aliases
   alias up='pkg update && pkg upgrade'
-  alias zshrc='$EDITOR $HOME/.zshrc %&& source $HOME/.zshrc'
+  alias zshrc='$nvim $HOME/.zshrc %&& source $HOME/.zshrc'
   alias help='cat $HOME/.aliases'
-  alias aliases='$EDITOR $HOME/.aliases'
+  alias aliases='$nvim $HOME/.aliases'
   alias py3='python'
   alias ls='lsd'

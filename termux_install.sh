@@ -25,7 +25,6 @@ pkg install python
 pkg install yarn
 pkg install nodejs
 pkg install bc
-pkg install cat
 pkg install lsd
 }
 
@@ -46,6 +45,11 @@ git clone https://github.com/mafredri/zsh-async.git
 cd $HOME && touch .zhistory
 cd $HOME && wget -c 'https://github.com/ffraanks/termux_install/raw/master/.zshrc'
 cd $HOME && wget -c 'https://github.com/ffraanks/termux_install/raw/master/.aliases'
+
+# MOTD
+cd /data/data/com.termux/files/usr/etc && rm -rf motd
+wget -c 'https://github.com/ffraanks/termux_install/raw/master/motd'
+cd $HOME
 }
 create_directory
 package_install

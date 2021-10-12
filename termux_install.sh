@@ -16,16 +16,16 @@ mkdir $HOME/Franks/Shell_Scripts
 # installation package
 package_install(){
 clear
-pkg install wget
-pkg install git
-pkg install zsh
-pkg install neovim
-pkg install htop
-pkg install python
-pkg install yarn
-pkg install nodejs
-pkg install bc
-pkg install lsd
+pkg install wget -y
+pkg install git -y
+pkg install zsh -y
+pkg install neovim -y
+pkg install htop -y
+pkg install python -y
+pkg install yarn -y
+pkg install nodejs -y
+pkg install bc -y
+pkg install lsd -y
 }
 
 # config

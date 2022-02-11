@@ -6,6 +6,7 @@
    ╚═╝   ╚══════╝╚═╝  ╚═╝╚═╝     ╚═╝ ╚═════╝ ╚═╝  ╚═╝
 
 Package install -> pkg install package
-Package remove -> pkg remove package
-Package update -> up
 
+Package remove -> pkg remove package
+
+Package update -> up

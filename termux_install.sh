@@ -16,7 +16,6 @@ mkdir $HOME/Franks/Shell_Scripts
 # installation package
 package_install(){
 clear
-pkg install wget -y
 pkg install git -y
 pkg install zsh -y
 pkg install neovim -y

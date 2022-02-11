@@ -26,6 +26,25 @@ pkg install yarn -y
 pkg install nodejs -y
 pkg install bc -y
 pkg install lsd -y
+pkg install openssh -y
+}
+
+# Script ssh
+ssh_script(){
+rm -rf ssh-passwd.sh && clear
+wget -c "https://github.com/ffraanks/termux_install/raw/master/ssh-passwd.sh"
+clear && printf "Deseja configurar seu ssh? [y/n]\n"
+read SSH_CONFIG
+
+if [ $SSH_CONFIG == 'Y' ] || [ $SSH_CONFIG == 'y' ] || [ $SSH_CONFIG == 'Yes' ] || [ $SSH_CONFIG == 'yes' ] || [ $SSH_CONFIG == 'YES' ] ; then
+  chmod +x ssh-passwd.sh && ./ssh-passwd.sh && configuration
+
+  elif [ $SSH_CONFIG == 'n' ] || [ $SSH_CONFIG == 'N' ] || [ $SSH_CONFIG == 'No' ] || [ $SSH_CONFIG == 'NO' ] ; then
+    configuration
+
+else
+  printf "Opção inexistente...\n\n" && read -p 'PRESSIONE ENTER E TENTE NOVAMENTE...' && ssh_script
+fi
 }
 
 # config
@@ -46,6 +65,7 @@ cd $HOME && touch .zhistory
 cd $HOME && wget -c 'https://github.com/ffraanks/termux_install/raw/master/.zshrc'
 cd $HOME && wget -c 'https://github.com/ffraanks/termux_install/raw/master/.aliases'
 
+
 # MOTD
 cd /data/data/com.termux/files/usr/etc && rm -rf motd
 wget -c 'https://github.com/ffraanks/termux_install/raw/master/motd'
@@ -53,4 +73,5 @@ cd $HOME && clear && printf "Instalação finalizada!\n"
 }
 create_directory
 package_install
+ssh_script
 configuration

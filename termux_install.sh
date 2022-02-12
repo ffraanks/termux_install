@@ -1,5 +1,10 @@
 #!/bin/env bash
 
+# paste name
+clear
+printf "Digia um nome para a sua pasta (EVITE ESPAÇOS)\n\n"
+read PASTE_NAME
+
 # directory create
 create_directory(){
 clear
@@ -8,9 +13,9 @@ mkdir $HOME/.projects
 mkdir $HOME/.config
 mkdir $HOME/.config/nvim
 mkdir $HOME/Scripts
-mkdir $HOME/Franks
-mkdir $HOME/Franks/Python
-mkdir $HOME/Franks/Shell_Scripts
+mkdir $HOME/$PASTE_NAME
+mkdir $HOME/$PASTE_NAME/Python
+mkdir $HOME/$PASTE_NAME/Shell_Scripts
 }
 
 # installation package

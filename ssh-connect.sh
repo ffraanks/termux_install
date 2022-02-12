@@ -6,7 +6,7 @@ read SSH_CHOICE
 
 if [ $SSH_CHOICE == '1' ] || [ $SSH_CHOICE == '01' ] ; then
   clear
-  printf "Digite seu user:\n\n"
+  printf "Digite o user que deseja se conectar:\n\n"
   read USER_SSH
   printf "\nAgora digite o ip que deseja se conectar:\n\n"
   read IP_SSH
@@ -14,9 +14,9 @@ if [ $SSH_CHOICE == '1' ] || [ $SSH_CHOICE == '01' ] ; then
 
 elif [ $SSH_CHOICE == '2' ] || [ $SSH_CHOICE == '02' ] ; then
   clear
-  printf "Digite seu user:\n\n"
+  printf "Digite o user que deseja se conectar:\n\n"
   read USER_SSH1
-  printf "\nAgora digite o i'que deseja se conectar:\n\n"
+  printf "\nAgora digite o ip que deseja se conectar:\n\n"
   read IP_SSH1
   ssh -p 22 $USER_SSH1@$IP_SSH1
 

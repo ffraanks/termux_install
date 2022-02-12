@@ -69,7 +69,7 @@ cd $HOME && wget -c 'https://github.com/ffraanks/termux_install/raw/master/.alia
 # MOTD
 cd /data/data/com.termux/files/usr/etc && rm -rf motd
 wget -c 'https://github.com/ffraanks/termux_install/raw/master/motd'
-rm -rf termux_install ssh-passwd.sh
+cd $HOME && rm -rf termux_install.sh ssh-passwd.sh
 cd $HOME && clear && printf "Instalação finalizada!\n"
 }
 create_directory

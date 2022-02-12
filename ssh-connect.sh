@@ -12,7 +12,7 @@ if [ $SSH_CHOICE == '1' ] || [ $SSH_CHOICE == '01' ] ; then
   read IP_SSH
   ssh -p 8022 $USER_SSH@$IP_SSH
 
-elif [ $SSH_CHOICE == '1' ] || [ $SSH_CHOICE == '01' ] ; then
+elif [ $SSH_CHOICE == '2' ] || [ $SSH_CHOICE == '02' ] ; then
   clear
   printf "Digite seu user:\n\n"
   read USER_SSH1

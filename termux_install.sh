@@ -30,13 +30,14 @@ pkg install openssh -y
 
 # Script ssh
 ssh_script(){
-rm -rf ssh-passwd.sh && clear
+rm -rf ssh-passwd.sh ssh-connect.sh && clear
+wget -c "https://github.com/ffraanks/termux_install/raw/master/ssh-connect.sh"
 wget -c "https://github.com/ffraanks/termux_install/raw/master/ssh-passwd.sh"
 clear && printf "Deseja configurar seu ssh? [y/n]\n"
 read SSH_CONFIG
 
 if [ $SSH_CONFIG == 'Y' ] || [ $SSH_CONFIG == 'y' ] || [ $SSH_CONFIG == 'Yes' ] || [ $SSH_CONFIG == 'yes' ] || [ $SSH_CONFIG == 'YES' ] ; then
-  chmod +x ssh-passwd.sh && ./ssh-passwd.sh && configuration
+  chmod +x ssh-passwd.sh && chmod +x ssh-connect.sh && ./ssh-passwd.sh && configuration
 
   elif [ $SSH_CONFIG == 'n' ] || [ $SSH_CONFIG == 'N' ] || [ $SSH_CONFIG == 'No' ] || [ $SSH_CONFIG == 'NO' ] ; then
     configuration
@@ -68,6 +69,7 @@ cd $HOME && wget -c 'https://github.com/ffraanks/termux_install/raw/master/.alia
 # MOTD
 cd /data/data/com.termux/files/usr/etc && rm -rf motd
 wget -c 'https://github.com/ffraanks/termux_install/raw/master/motd'
+rm -rf termux_install ssh-passwd.sh
 cd $HOME && clear && printf "Instalação finalizada!\n"
 }
 create_directory

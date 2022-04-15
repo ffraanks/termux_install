@@ -47,7 +47,7 @@ if [ $TERMUX_STYLE == 'Y' ] || [ $TERMUX_STYLE == 'y' ] || [ $TERMUX_STYLE == 'Y
   termux-style && ssh_script
   
 elif [ $TERMUX_STYLE == 'n' ] || [ $TERMUX_STYLE == 'N' ] || [ $TERMUX_STYLE == 'No' ] || [ $TERMUX_STYLE == 'NO' ] || [ $TERMUX_STYLE == 'no' ] ; then
-  cd $HOME/Scripts && wget -c "https://github.com/ffraanks/termux_install/raw/master/install.sh" && ssh_script
+  cd $HOME && git clone https://github.com/ffraanks/termux-style.git && ssh_script
 
   else
   printf "Opção inexistente...\n\n" && read -p 'PRESSIONE ENTER E TENTE NOVAMENTE...' && termux_style

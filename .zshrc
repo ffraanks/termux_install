@@ -1,5 +1,8 @@
 source "$HOME"/.aliases # My Aliases
 
+# Powerlevel10k
+source ~/.projects/powerlevel10k/powerlevel10k.zsh-theme
+
 # History ZSH
 HISTFILE=~/.zhistory # My zsh history
 HIST_SIVE=1000 # Size history list
@@ -27,7 +30,6 @@ CASE_SENSITIVE="false"
 HYPHEN_INSENSITIVE="true"
 
 # Functions
-
 _my_prompt() {
 	async_init
 
@@ -82,6 +84,13 @@ bindkey -s '^a' 'bc -l\n'
 0x0() {
 for i in "$@"; do
     curl -F file=@$i http://0x0.st
+done
+}
+
+# you can put as many files do you want
+envs() {
+for i in "$@"; do
+    curl -F file=@$i https://envs.sh/
 done
 }
 

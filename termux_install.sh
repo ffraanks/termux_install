@@ -105,5 +105,6 @@ cd $HOME && clear && printf "Instalação finalizada!\n && read -p 'PRESSIONE EN
 }
 create_directory
 package_install
+termux_style
 ssh_script
 configuration

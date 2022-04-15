@@ -37,17 +37,18 @@ pkg install openssh -y
 # Termux styling
 termux_style(){
 clear
+cd $HOME
 printf "Deseja personalizar seu termux [y/n]?\n\n"
 read TERMUX_STYLE
 
 if [ $TERMUX_STYLE == 'Y' ] || [ $TERMUX_STYLE == 'y' ] || [ $TERMUX_STYLE == 'Yes' ] || [ $TERMUX_STYLE == 'yes' ] || [ $TERMUX_STYLE == 'YES' ] ; then
-  cd $HOME && rm -rf termux-style && clear
-  cd $HOME && git clone https://github.com/ffraanks/termux-style.git
+  rm -rf termux-style && clear
+  git clone https://github.com/ffraanks/termux-style.git
   cd termux-style && ./install
-  termux-style && ssh_script
+  ssh_script
   
 elif [ $TERMUX_STYLE == 'n' ] || [ $TERMUX_STYLE == 'N' ] || [ $TERMUX_STYLE == 'No' ] || [ $TERMUX_STYLE == 'NO' ] || [ $TERMUX_STYLE == 'no' ] ; then
-  cd $HOME && git clone https://github.com/ffraanks/termux-style.git && ssh_script
+  cd $HOME/Scripts && wget -c "https://github.com/ffraanks/termux_install/raw/master/install.sh" && ssh_script
 
   else
   printf "Opção inexistente...\n\n" && read -p 'PRESSIONE ENTER E TENTE NOVAMENTE...' && termux_style
@@ -107,5 +108,6 @@ cd $HOME && clear && printf "Instalação finalizada!\n" && read -p 'PRESSIONE E
 }
 create_directory
 package_install
+termux_style
 ssh_script
 configuration

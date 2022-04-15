@@ -4,3 +4,5 @@
   alias aliases='nvim $HOME/.aliases'
   alias py3='python'
   alias ls='lsd'
+  alias c='clear'
+  alias q='exit'

@@ -1,7 +1,7 @@
 source "$HOME"/.aliases # My Aliases
 
 # Powerlevel10k
-source ~/.projects/powerlevel10k/powerlevel10k.zsh-theme
+#source ~/.projects/powerlevel10k/powerlevel10k.zsh-theme
 
 # History ZSH
 HISTFILE=~/.zhistory # My zsh history

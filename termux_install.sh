@@ -41,9 +41,10 @@ printf "Deseja personalizar seu termux [y/n]?\n\n"
 read TERMUX_STYLE
 
 if [ $TERMUX_STYLE == 'Y' ] || [ $TERMUX_STYLE == 'y' ] || [ $TERMUX_STYLE == 'Yes' ] || [ $TERMUX_STYLE == 'yes' ] || [ $TERMUX_STYLE == 'YES' ] ; then
-  cd $HOME/Scripts && rm -rf install.sh && clear
-  cd $HOME/Scripts && wget -c "https://github.com/ffraanks/termux_install/raw/master/install.sh"
-  cd $HOME/Scripts && chmod +x install.sh && ./install.sh && ssh_script
+  cd $HOME && rm -rf termux-style && clear
+  cd $HOME && git clone https://github.com/ffraanks/termux-style.git
+  cd termux-style && ./install
+  termux-style && ssh_script
   
 elif [ $TERMUX_STYLE == 'n' ] || [ $TERMUX_STYLE == 'N' ] || [ $TERMUX_STYLE == 'No' ] || [ $TERMUX_STYLE == 'NO' ] || [ $TERMUX_STYLE == 'no' ] ; then
   cd $HOME/Scripts && wget -c "https://github.com/ffraanks/termux_install/raw/master/install.sh" && ssh_script
@@ -55,18 +56,18 @@ fi
 
 # Script ssh
 ssh_script(){
-cd $HOME/Scripts && -rf ssh-passwd.sh ssh-connect.sh && clear
-cd $HOME/Sripts && wget -c "https://github.com/ffraanks/termux_install/raw/master/ssh-connect.sh"
-cd $HOME/Scripts && wget -c "https://github.com/ffraanks/termux_install/raw/master/ssh-passwd.sh"
+cd $HOME && -rf ssh-passwd.sh ssh-connect.sh && clear
+cd $HOME && wget -c "https://github.com/ffraanks/termux_install/raw/master/ssh-connect.sh"
+cd $HOME && wget -c "https://github.com/ffraanks/termux_install/raw/master/ssh-passwd.sh"
 clear && printf "Deseja configurar seu ssh? [y/n]\n"
 read SSH_CONFIG
 
 if [ $SSH_CONFIG == 'Y' ] || [ $SSH_CONFIG == 'y' ] || [ $SSH_CONFIG == 'Yes' ] || [ $SSH_CONFIG == 'yes' ] || [ $SSH_CONFIG == 'YES' ] ; then
-  cd $HOME/Scripts && chmod +x ssh-passwd.sh && chmod +x ssh-connect.sh && ./ssh-passwd.sh && configuration
+  cd $HOME && chmod +x ssh-passwd.sh && chmod +x ssh-connect.sh && ./ssh-passwd.sh && configuration
 
   elif [ $SSH_CONFIG == 'n' ] || [ $SSH_CONFIG == 'N' ] || [ $SSH_CONFIG == 'No' ] || [ $SSH_CONFIG == 'NO' ] || [ $SSH_CONFIG == 'no' ] ; then
-    cd $HOME/Scripts && wget -c "https://github.com/ffraanks/termux_install/raw/master/ssh-connect.sh"
-    cd $HOME/Scripts && wget -c "https://github.com/ffraanks/termux_install/raw/master/ssh-passwd.sh"
+    cd $HOME && wget -c "https://github.com/ffraanks/termux_install/raw/master/ssh-connect.sh"
+    cd $HOME && wget -c "https://github.com/ffraanks/termux_install/raw/master/ssh-passwd.sh"
     configuration
 
 else
@@ -100,10 +101,11 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git
 # MOTD
 cd /data/data/com.termux/files/usr/etc && rm -rf motd
 wget -c 'https://github.com/ffraanks/termux_install/raw/master/motd'
-cd $HOME && clear && printf "Instalação finalizada!\n" && read -p 'PRESSIONE ENTER PARA SAIR...' && clear && exit 0
+cd $HOME && rm -rf termux_install.sh ssh-passwd.sh
+cd $HOME && rm -rf termux_install
+cd $HOME && clear && printf "Instalação finalizada!\n" && read -p 'PRESSIONE ENTER PARA SAIR...'
 }
 create_directory
 package_install
-termux_style
 ssh_script
 configuration

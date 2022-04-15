@@ -1,5 +1,7 @@
 # My Aliases
   alias up='pkg update && pkg upgrade'
+  alias add='pkg install'
+  alias del='pkg remove'
   alias zshrc='nvim $HOME/.zshrc %&& source $HOME/.zshrc'
   alias aliases='nvim $HOME/.aliases'
   alias py3='python'

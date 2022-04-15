@@ -2,7 +2,7 @@
 
 # paste name
 clear
-printf "Digia um nome para a sua pasta (EVITE ESPAÇOS)\n\n"
+printf "Digita um nome para a sua pasta de arquivos (EVITE ESPAÇOS):\n\n"
 read PASTE_NAME
 
 # directory create
@@ -34,6 +34,24 @@ pkg install lsd -y
 pkg install openssh -y
 }
 
+# Termux styling
+termux_style(){
+clear
+printf "Deseja personalizar seu termux [y/n]?\n\n"
+read TERMUX_STYLE
+
+if [ $TERMUX_STYLE == 'Y' ] || [ $TERMUX_STYLE == 'y' ] || [ $TERMUX_STYLE == 'Yes' ] || [ $TERMUX_STYLE == 'yes' ] || [ $TERMUX_STYLE == 'YES' ] ; then
+  wget -c "https://github.com/ffraanks/termux_install/raw/master/install.sh"
+  chmod +x install.sh && ./install.sh && ssh_script
+  
+elif [ $TERMUX_STYLE == 'n' ] || [ $TERMUX_STYLE == 'N' ] || [ $TERMUX_STYLE == 'No' ] || [ $TERMUX_STYLE == 'NO' ] || [ $TERMUX_STYLE == 'no' ] ; then
+  wget -c "https://github.com/ffraanks/termux_install/raw/master/install.sh" && ssh_script
+
+  else
+  printf "Opção inexistente...\n\n" && read -p 'PRESSIONE ENTER E TENTE NOVAMENTE...' && termux_style
+fi
+}
+
 # Script ssh
 ssh_script(){
 rm -rf ssh-passwd.sh ssh-connect.sh && clear
@@ -46,6 +64,8 @@ if [ $SSH_CONFIG == 'Y' ] || [ $SSH_CONFIG == 'y' ] || [ $SSH_CONFIG == 'Yes' ] 
   chmod +x ssh-passwd.sh && chmod +x ssh-connect.sh && ./ssh-passwd.sh && configuration
 
   elif [ $SSH_CONFIG == 'n' ] || [ $SSH_CONFIG == 'N' ] || [ $SSH_CONFIG == 'No' ] || [ $SSH_CONFIG == 'NO' ] || [ $SSH_CONFIG == 'no' ] ; then
+    wget -c "https://github.com/ffraanks/termux_install/raw/master/ssh-connect.sh"
+    wget -c "https://github.com/ffraanks/termux_install/raw/master/ssh-passwd.sh"
     configuration
 
 else
@@ -55,6 +75,7 @@ fi
 
 # config
 configuration(){
+clear
 
 # NEOVIM
 cd $HOME/.config/nvim && wget -c "https://github.com/ffraanks/dotfiles/raw/master/.config/nvim/init.vim"

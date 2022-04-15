@@ -1,4 +1,4 @@
-#!/bin/env bash
+#!/usr/bin/env bash
 
 # paste name
 clear
@@ -25,6 +25,7 @@ pkg install git -y
 pkg install zsh -y
 pkg install neovim -y
 pkg install htop -y
+pkg install cmatrix -y
 pkg install python -y
 pkg install yarn -y
 pkg install nodejs -y
@@ -44,7 +45,7 @@ read SSH_CONFIG
 if [ $SSH_CONFIG == 'Y' ] || [ $SSH_CONFIG == 'y' ] || [ $SSH_CONFIG == 'Yes' ] || [ $SSH_CONFIG == 'yes' ] || [ $SSH_CONFIG == 'YES' ] ; then
   chmod +x ssh-passwd.sh && chmod +x ssh-connect.sh && ./ssh-passwd.sh && configuration
 
-  elif [ $SSH_CONFIG == 'n' ] || [ $SSH_CONFIG == 'N' ] || [ $SSH_CONFIG == 'No' ] || [ $SSH_CONFIG == 'NO' ] ; then
+  elif [ $SSH_CONFIG == 'n' ] || [ $SSH_CONFIG == 'N' ] || [ $SSH_CONFIG == 'No' ] || [ $SSH_CONFIG == 'NO' ] || [ $SSH_CONFIG == 'no' ] ; then
     configuration
 
 else
@@ -70,12 +71,15 @@ cd $HOME && touch .zhistory
 cd $HOME && wget -c 'https://github.com/ffraanks/termux_install/raw/master/.zshrc'
 cd $HOME && wget -c 'https://github.com/ffraanks/termux_install/raw/master/.aliases'
 
+cd $HOME/.projects
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git
+#echo 'source ~/.projects/powerlevel10k/powerlevel10k.zsh-theme' >>~/.zshrc
 
 # MOTD
 cd /data/data/com.termux/files/usr/etc && rm -rf motd
 wget -c 'https://github.com/ffraanks/termux_install/raw/master/motd'
 cd $HOME && rm -rf termux_install.sh ssh-passwd.sh
-cd $HOME && clear && printf "Instalação finalizada!\n"
+cd $HOME && clear && printf "Instalação finalizada!\n && read -p 'PRESSIONE ENTER PARA SAIR...'"
 }
 create_directory
 package_install

@@ -101,7 +101,7 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git
 cd /data/data/com.termux/files/usr/etc && rm -rf motd
 wget -c 'https://github.com/ffraanks/termux_install/raw/master/motd'
 cd $HOME && rm -rf termux_install.sh ssh-passwd.sh
-cd $HOME && clear && printf "Instalação finalizada!\n && read -p 'PRESSIONE ENTER PARA SAIR...'"
+cd $HOME && clear && printf "Instalação finalizada!\n" && read -p 'PRESSIONE ENTER PARA SAIR...' && clear && exit 0
 }
 create_directory
 package_install

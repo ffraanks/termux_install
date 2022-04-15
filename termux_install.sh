@@ -43,7 +43,7 @@ read TERMUX_STYLE
 if [ $TERMUX_STYLE == 'Y' ] || [ $TERMUX_STYLE == 'y' ] || [ $TERMUX_STYLE == 'Yes' ] || [ $TERMUX_STYLE == 'yes' ] || [ $TERMUX_STYLE == 'YES' ] ; then
   cd $HOME/Scripts && rm -rf install.sh && clear
   cd $HOME/Scripts && wget -c "https://github.com/ffraanks/termux_install/raw/master/install.sh"
-  chmod +x install.sh && ./install.sh && ssh_script
+  cd $HOME/Scripts && chmod +x install.sh && ./install.sh && ssh_script
   
 elif [ $TERMUX_STYLE == 'n' ] || [ $TERMUX_STYLE == 'N' ] || [ $TERMUX_STYLE == 'No' ] || [ $TERMUX_STYLE == 'NO' ] || [ $TERMUX_STYLE == 'no' ] ; then
   cd $HOME/Scripts && wget -c "https://github.com/ffraanks/termux_install/raw/master/install.sh" && ssh_script
@@ -62,7 +62,7 @@ clear && printf "Deseja configurar seu ssh? [y/n]\n"
 read SSH_CONFIG
 
 if [ $SSH_CONFIG == 'Y' ] || [ $SSH_CONFIG == 'y' ] || [ $SSH_CONFIG == 'Yes' ] || [ $SSH_CONFIG == 'yes' ] || [ $SSH_CONFIG == 'YES' ] ; then
-  chmod +x ssh-passwd.sh && chmod +x ssh-connect.sh && ./ssh-passwd.sh && configuration
+  cd $HOME/Scripts && chmod +x ssh-passwd.sh && chmod +x ssh-connect.sh && ./ssh-passwd.sh && configuration
 
   elif [ $SSH_CONFIG == 'n' ] || [ $SSH_CONFIG == 'N' ] || [ $SSH_CONFIG == 'No' ] || [ $SSH_CONFIG == 'NO' ] || [ $SSH_CONFIG == 'no' ] ; then
     cd $HOME/Scripts && wget -c "https://github.com/ffraanks/termux_install/raw/master/ssh-connect.sh"

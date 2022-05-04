@@ -35,14 +35,10 @@ pkg install openssh -y
 pkg install man -y
 pkg install net-tools -y
 pkg install nginx -y
-pkg install neomutt -y
-pkg install mupdf -y
-pkg install mpv -y
 pkg install imagemagick -y
 pkg install fzf -y
 pkg install cpufetch -y
 pkg install cmus -y
-pkg install cava -y
 pkg install aria2 -y
 pkg install figlet -y
 pkg install w3m -y

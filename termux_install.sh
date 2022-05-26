@@ -22,6 +22,7 @@ mkdir $HOME/$PASTE_NAME/Shell_Scripts
 package_install(){
 clear
 pkg install git -y
+pkg install wget -y
 pkg install zsh -y
 pkg install neovim -y
 pkg install neofetch -y

@@ -2,7 +2,7 @@
 
 # paste name
 clear
-printf "Digia um nome para a sua pasta (EVITE ESPAÇOS)\n\n"
+printf "Digita um nome para a sua pasta pessoal (EVITE ESPAÇOS):\n\n"
 read PASTE_NAME
 
 # directory create
@@ -24,6 +24,7 @@ clear
 pkg install git -y
 pkg install zsh -y
 pkg install neovim -y
+pkg install neofetch -y
 pkg install htop -y
 pkg install cmatrix -y
 pkg install python -y
@@ -34,14 +35,8 @@ pkg install lsd -y
 pkg install openssh -y
 pkg install man -y
 pkg install net-tools -y
-pkg install nginx -y
-pkg install imagemagick -y
 pkg install fzf -y
-pkg install cpufetch -y
 pkg install cmus -y
-pkg install aria2 -y
-pkg install figlet -y
-pkg install w3m -y
 }
 
 # Termux styling
@@ -112,10 +107,13 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git
 # MOTD
 cd /data/data/com.termux/files/usr/etc && rm -rf motd
 wget -c 'https://github.com/ffraanks/termux_install/raw/master/motd'
+
+# End
 cd $HOME && rm -rf termux_install.sh ssh-passwd.sh
 cd $HOME && rm -rf termux_install
 cd $HOME && clear && printf "Instalação finalizada!\n" && read -p 'PRESSIONE ENTER PARA SAIR...' && clear && exit 0
 }
+
 create_directory
 package_install
 termux_style

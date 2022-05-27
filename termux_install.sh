@@ -26,6 +26,7 @@ pkg install wget -y
 pkg install zsh -y
 pkg install neovim -y
 pkg install neofetch -y
+pkg install proot-distro -y
 pkg install htop -y
 pkg install cmatrix -y
 pkg install python -y
